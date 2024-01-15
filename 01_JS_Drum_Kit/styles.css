@@ -52,12 +52,8 @@ body {
   color: lightgoldenrodyellow;
   border: solid 4px black;
   border-radius: 50%;
-  background-color:rgba(20, 20, 19, 0.452)
-}
-
-.pressed {
-  border: solid 8px yellow;
-  font-size: 1.35em;
+  background-color:rgba(20, 20, 19, 0.452);
+  transition: border 0.1s, transform 0.1s;
 }
 
 #k{

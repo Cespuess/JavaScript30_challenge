@@ -8,7 +8,41 @@ const keyT = document.getElementById('t');
 const keyS = document.getElementById('s');
 const keyK = document.getElementById('k');
 
+const dumpKeys = 'hobctskHOBCTSK'
+
 // Funciones
+
+function pressedKey(key) {
+  if (key === 'k') {
+    const audio = new Audio('./sounds/kick.wav');
+    loopAudio(audio);
+    keyTransform(keyK);
+  } else if (key === 'h') {
+    const audio = new Audio('./sounds/hihat.wav');
+    loopAudio(audio);
+    keyTransform(keyH);
+  } else if (key === 'o') {
+    const audio = new Audio('./sounds/openhat.wav');
+    loopAudio(audio);
+    keyTransform(keyO);
+  } else if (key === 'b') {
+    const audio = new Audio('./sounds/boom.wav');
+    loopAudio(audio);
+    keyTransform(keyB);
+  } else if (key === 'c') {
+    const audio = new Audio('./sounds/clap.wav');
+    loopAudio(audio);
+    keyTransform(keyC);
+  } else if (key === 't') {
+    const audio = new Audio('./sounds/tom.wav');
+    loopAudio(audio);
+    keyTransform(keyT);
+  } else if (key === 's') {
+    const audio = new Audio('./sounds/snare.wav');
+    loopAudio(audio);
+    keyTransform(keyS);
+  }
+}
 
 function loopAudio(sound) {
   sound.pause(); // se pausa y se pone a cero por si se vuelve a pulsar la tecla antes de que haya acabado de reproducirse el sonido.
@@ -16,35 +50,21 @@ function loopAudio(sound) {
   sound.play();
 }
 
-function soundKey(e) {
-  let key = e.key;
-  if (key === 'k' || key === 'K') {
-    const audio = new Audio('./sounds/kick.wav');
-    loopAudio(audio);
-  } else if (key === 'h' || key === 'H') {
-    const audio = new Audio('./sounds/hihat.wav');
-    loopAudio(audio);
-  } else if (key === 'o' || key === 'O') {
-    const audio = new Audio('./sounds/openhat.wav');
-    loopAudio(audio);
-  } else if (key === 'b' || key === 'B') {
-    const audio = new Audio('./sounds/boom.wav');
-    loopAudio(audio);
-  } else if (key === 'c' || key === 'C') {
-    const audio = new Audio('./sounds/clap.wav');
-    loopAudio(audio);
-  } else if (key === 't' || key === 'T') {
-    const audio = new Audio('./sounds/tom.wav');
-    loopAudio(audio);
-  } else if (key === 's' || key === 'S') {
-    const audio = new Audio('./sounds/snare.wav');
-    loopAudio(audio);
-  }
+function keyTransform(dump) {
+  dump.style.border = 'solid 6px yellow';
+  dump.style.transform = 'scale(1.2)';
+  setTimeout(() => {
+    dump.style.border = 'solid 4px black';
+    dump.style.transform = 'scale(1)';
+  }, 100);
 }
 
 
 // Event Listeners
 
 document.addEventListener('keydown', (e) => {
-  soundKey(e);
+  if (dumpKeys.includes(e.key)) { //comprobamos que la tecla pulsada corresponda a un tambor.
+    let key = e.key.toLowerCase();
+    pressedKey(key);
+  }  
 });

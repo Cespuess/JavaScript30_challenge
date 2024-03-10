@@ -8,3 +8,5 @@ En este repositorio compartiré con vosotros los ejercicios del desafío [JavaSr
 ### 01- Drum Kit
 Este ejercicio consiste en desarrollar una aplicación interactiva donde, al presionar determinadas teclas del teclado, se generará un sonido único, como si fuera una batería. Cada tecla pulsada no solo producirá un sonido específico sino que también desencadenará un efecto visual en el elemento correspondiente a la tecla.
 
+### 02- Clock
+Ha consistido en crear un reloj analógico.
